@@ -1,0 +1,77 @@
+<div class="story story-container">
+  <h1>Depoly backend API with spring boot on heroku</h1>
+  <div class="story-meta">
+    <div class="date">
+        September 13th 2019
+    </div>
+  </div>
+  <div class="content" v-pre="">
+    <div class="paragraph">
+      Spring boot is a collection of spring frameworks help you to create and build a web app.
+      In this section, we use spring boot as backend api which allow us to seperate service and interface or implement microservices.
+      Heroku is free host for us to deploy projects with limited, you will need to pay fee to using full services.
+      Pros:
+        Used for medium or large project.
+        Auto deploy when submit code to master on github.
+      Cons:
+        Cost for backend and server.
+    </div>
+    <div class="paragraph">
+      <strong>Environment for spring boot API</strong>
+    </div>
+    <ol>
+      <li>Download and Install jdk at <a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk12-downloads-5295953.html">https://www.oracle.com/technetwork/java/javase/downloads/jdk12-downloads-5295953.html</a>: Environment for java developer</li>
+      <li>Download and Install maven at <a href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a></li>
+      <li>Setting JDK_HOME and MAVEN_HOME</li>
+      <li>Download eclipse IDE at <a href="https://www.eclipse.org/downloads/">https://www.eclipse.org/downloads/</a>: IDE used for java</li>
+      <li>Open eclipse, create new maven project</li>
+      <li>Open pom.xml and declaring spring boot dependencies
+        &lt;pre&gt;
+          &lt;dependency&gt;
+              &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+              &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+          &lt;/dependency&gt;
+          &lt;dependency&gt;
+              &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+              &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+              &lt;scope&gt;test&lt;/scope&gt;
+          &lt;/dependency&gt;
+        &lt;/pre&gt;
+      </li>
+      <li>Right click on project, choose run as -> maven build (input clean install for Goals)</li>
+      <li>At src folder, create new application and controller file. (Package must follow convention, so that spring will auto scan file)</li>
+    </ol>
+    <img width="800" height="700" src="assets/img/springboot.png">
+    <div class="paragraph">
+      <strong>Deploy using Heroku Git</strong>
+    </div>
+    <ol>
+      <li>Register account in <a href="https://dashboard.heroku.com">heroku page</a></li>
+      <li>Click on New to create new heroku app</li>
+      <li>Download and install <a href="https://devcenter.heroku.com/articles/heroku-cli">the Heroku CLI</a></li>
+      <li>run <pre>$ heroku login</pre></li>
+      <li>Clone the repository. Use Git to clone thanhncspring's source code to your local machine.</li>
+      <li>run
+        <pre>
+          $ heroku git:clone -a &lt;your_project&gt;
+          $ cd &lt;your_project&gt;
+        </pre>
+      </li>
+      <li>Deploy your changes. Make some changes to the code you just cloned and deploy them to Heroku using Git.</li>
+      <li><pre>
+          $ git add .
+          $ git commit -am "&lt;your_comment&gt;"
+          $ git push heroku master</pre>
+      </li>
+      <li>Choose your app</li>
+      <li>Click on Open app</li>
+    </ol>
+    <div class="paragraph">
+      <strong>Relates</strong>
+    </div>
+    <ol>
+      <li><a routerLink="/" routerLinkActive="active">Create free website with angular and github</a></li>
+      <li><a routerLink="/database" routerLinkActive="active">CRUD with angular and firebase</a></li>
+    </ol>
+  </div>   
+</div>

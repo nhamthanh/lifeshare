@@ -1,1 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    line-height: 1;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+.date {
+    font-size: 14px;
+    color: #444;
+}
+.story {
+    strong {
+        font-weight: bold;
+    };
+    .title {
+        font-size: 38px;
+        font-family: 'IBM Plex Sans', sans-serif;
+        font-weight: bold;
+        line-height: 1.4;
+        margin-bottom: 15px;
+    };
+    ol {
+        list-style-type: decimal;
+        padding-left: 40px;
+    }
+    li, .paragraph {
+        font-size: 20px;
+        line-height: 1.6;
+        margin: 35px 0;
+        position: relative;
+    }
+
+}
+.story-container {
+    margin: 50px auto;
+    width: 700px;
+    max-width: 90%;
+    padding: 0;
+    position: relative;
+}
+
+.story-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 15px;
+}
+
+pre {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #fff !important;
+    background-color: #333;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+}

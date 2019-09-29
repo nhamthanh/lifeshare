@@ -1,0 +1,144 @@
+<div class="story story-container">
+  <h1>CRUD with angular and firebase</h1>
+  <div class="story-meta">
+    <div class="date">
+        September 9th 2019
+    </div>
+  </div>
+  <div class="content" v-pre="">
+    <div class="paragraph">
+      CRUD stands for Create, Read, Update and Delete operations.
+      Firebase is a powerful Database as a Service (DBaaS) solution that provides a scalable NoSQL cloud database, help you to build apps fast, cloud base, ensure by Google. 
+      You can use it free with limits, or pay to get full function.
+      Pros:
+        Build your app fast, multi-platform support.
+        No cost for backend.
+      Cons:
+        Used for small or medium project.
+    </div>
+    <div class="paragraph">
+      <strong>Add Firebase config to environments variable</strong>
+    </div>
+    <ol>
+      <li>Install firebase module <kbd>npm install @angular/fire firebase --save</kbd></li>
+      <li>Go to firebase console <a href="https://console.firebase.google.com">https://console.firebase.google.com</a> (using your google account), then you add a new project</li>
+      <li>Once it is created we move to configuration section and click on the Add Firebase to your web app button.</li>
+      <li>The pop up will have the following information about your new Firebase App:</li>
+      <li>In order to connect our Angular app with our new Firebase app we will copy these credentials in the environment.ts and environment.prod.ts file located in src/environments/environment.ts from our Angular project.</li>
+    </ol>
+    <div class="paragraph">
+      <pre>
+      export const environment = &#123;
+        production: false,
+        firebase: &#123;
+          apiKey: YOUR_API_KEY,
+          authDomain: YOUR_AUTH_DOMAIN,
+          databaseURL: YOUR_DATABASE_URL,
+          projectId: YOUR_PROJECT_ID,
+          storageBucket: "",
+          messagingSenderId: YOUR_MESSAGING_SENDER_ID
+          &#125;
+      &#125;;
+      </pre>
+    </div>
+    <div class="paragraph">
+      <strong>Create angular project</strong>
+    </div>
+    <ol>
+      <li>ng new &lt project name &gt in cmd to create your project</li>
+      <li>ng server in cmd and test your website in localhost page <a href="http://localhost:4200/">http://localhost:4200/</a>. It is default port for angular project</li>
+    </ol>
+    <div class="paragraph">
+      <strong>Setup the Modules for Firebase</strong>
+    </div>
+    <ol>
+      <li>Open your AppModule located in /src/app/app.module.ts and inject the Firebase providers for Firestore and specify your Firebase configuration.</li>
+    </ol>
+    <div class="paragraph">
+      <pre>
+        <div ngNonBindable>
+        import &#123; AngularFireModule &#125; from '@angular/fire';
+        import &#123; AngularFirestoreModule &#125; from '@angular/fire/firestore';
+        import &#123; environment &#125; from '../environments/environment';
+        ...
+        imports: [
+          AngularFireModule.initializeApp(environment.firebase),
+          AngularFirestoreModule,
+          ...
+        [
+        </div>
+      </pre>
+    </div>
+    <ol>
+      <li>At this point we finished the configuration and we are ready to start developing the functionalities of this Angular 7 crud example app</li>
+    </ol>
+    <div class="paragraph">
+      <strong>Angular Firebase CRUD Tutorial</strong>
+    </div>
+    <div class="paragraph">
+      First, go to firebase console, in your project 's database, create a new collection users and also add one document.
+    </div>
+    <img width="800" height="600" src="assets/img/firebase.png">
+    <div class="paragraph">
+      <div>Inside your component typescript and html add for view from firebase</div>
+      <pre>
+        <div ngNonBindable>
+          public users: Observable&lt;any[]&gt;;
+          constructor(db: AngularFirestore) (
+              this.users = db.collection('users').valueChanges();
+          )
+          createUser(user: User) &#123;
+            return this.db.collection('users').add(user);
+          &#125;
+          updateUser(user: User) &#123;
+            this.db.collection('users').doc(user.payload.doc.id).set(&#123;name: user.name, age: user.age&#125;);
+          &#125;
+          deleteUser(user) &#123;
+            return
+                this.db
+                .collection("users")
+                .doc(user.payload.doc.id)
+                .delete();
+          &#125;
+        </div>
+      </pre>
+      <pre>
+          <div ngNonBindable>
+            &lt;ul&gt;
+            &lt;li *ngFor="let user of users | async"&gt;
+              &#123;&#123;user.name&#125;&#125; - &#123;&#123;user.age&#125;&#125;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+        </div>
+      </pre>
+    </div>
+    <div class="paragraph">
+      It is the first step that you can view data from firebase in your website.
+    </div>
+    <!-- <div class="paragraph">
+      <strong>Video</strong>
+    </div> -->
+    <!-- <iframe width="420" height="315"
+      src="https://www.youtube.com/embed/RD3bhD2v7lU">
+    </iframe> -->
+    <div class="paragraph">
+      <strong>Reference</strong>
+    </div>
+    <ol>
+      <li><a href="https://angular-templates.io/tutorials/about/angular-crud-with-firebase">Angular CRUD with Firebase</a></li>
+    </ol>
+    <div class="paragraph">
+      <strong>Video</strong>
+    </div>
+    <iframe width="420" height="315"
+      src="https://www.youtube.com/embed/rTD3pRhaCpE">
+    </iframe>
+    <div class="paragraph">
+      <strong>Relates</strong>
+    </div>
+    <ol>
+      <li><a routerLink="/" routerLinkActive="active">Create free website with angular and github</a></li>
+      <li><a routerLink="/java" routerLinkActive="active">Depoly backend API with spring boot on heroku</a></li>
+    </ol>
+  </div>   
+</div>
