@@ -26,6 +26,9 @@
       <li>Download eclipse IDE at <a href="https://www.eclipse.org/downloads/">https://www.eclipse.org/downloads/</a>: IDE used for java</li>
       <li>Open eclipse, create new maven project</li>
       <li>Open pom.xml and declaring spring boot dependencies
+        <pre>
+        &lt;packaging&gt;jar&lt;/packaging&gt;
+        ...
         &lt;pre&gt;
           &lt;dependency&gt;
               &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
@@ -37,6 +40,16 @@
               &lt;scope&gt;test&lt;/scope&gt;
           &lt;/dependency&gt;
         &lt;/pre&gt;
+        ....
+        &lt;build&gt;
+          &lt;plugins&gt;
+            &lt;plugin&gt;
+              &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+              &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+            &lt;/plugin&gt;
+          &lt;/plugins&gt;
+        &lt;/build&gt;
+        </pre>
       </li>
       <li>Right click on project, choose run as -> maven build (input clean install for Goals)</li>
       <li>At src folder, create new application and controller file. (Package must follow convention, so that spring will auto scan file)</li>
@@ -49,22 +62,24 @@
       <li>Register account in <a href="https://dashboard.heroku.com">heroku page</a></li>
       <li>Click on New to create new heroku app</li>
       <li>Download and install <a href="https://devcenter.heroku.com/articles/heroku-cli">the Heroku CLI</a></li>
-      <li>run <pre>$ heroku login</pre></li>
-      <li>Clone the repository. Use Git to clone thanhncspring's source code to your local machine.</li>
+      <li>login your account by run <pre>
+        $ heroku login</pre>
+      </li>
+      <li>Clone the repository. Use Git to clone your's source code to your local machine.</li>
       <li>run
         <pre>
           $ heroku git:clone -a &lt;your_project&gt;
           $ cd &lt;your_project&gt;
         </pre>
       </li>
-      <li>Deploy your changes. Make some changes to the code you just cloned and deploy them to Heroku using Git.</li>
-      <li><pre>
+      <li>Deploy your changes. Make some changes to the code you just cloned and deploy them to Heroku using Git.
+        <pre>
           $ git add .
           $ git commit -am "&lt;your_comment&gt;"
-          $ git push heroku master</pre>
+          $ git push heroku master
+          $ heroku open
+        </pre>
       </li>
-      <li>Choose your app</li>
-      <li>Click on Open app</li>
     </ol>
     <div class="paragraph">
       <strong>Relates</strong>
